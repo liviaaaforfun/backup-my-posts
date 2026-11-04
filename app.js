@@ -119,7 +119,7 @@
       if (mode === 'big' && !t.items.some(i => S.posts[i].media.some(m => isBig(m) || m.rep))) return false;
       if (mode === 'new' && !(t.isNew || t.items.some(i => S.posts[i].isNew))) return false;
       if (mode !== 'reply' && t.kind === 'reply' && !S.settings.others) return false;
-      if (q && !t.items.some(i => S.posts[i].text.toLowerCase().includes(q))) return false;
+      if (q && !t.items.some(i => (S.posts[i].text + '\n' + (S.posts[i].lt || '')).toLowerCase().includes(q))) return false;
       return true;
     });
   }
@@ -160,7 +160,8 @@
       const long = p.text.length > 140 || (p.text.match(/\n/g) || []).length > 5;
       return `<div class="it"><div class="it-head"><span>${fmt(p.t)}</span>${i ? '<span class="badge">追加</span>' : ''}${p.isNew ? '<span class="badge new">新</span>' : ''}
         ${i ? `<button type="button" class="btn small" data-act="split" data-th="${t.id}" data-post="${id}">拆成獨立一串</button>` : ''}</div>
-        <p class="it-text">${esc(p.text) || '<i>（沒有文字）</i>'}</p>${long ? '<button type="button" class="expand">展開全文</button>' : ''}
+        <p class="it-text">${esc(p.text) || (p.lt ? '' : '<i>（沒有文字）</i>')}</p>${long ? '<button type="button" class="expand">展開全文</button>' : ''}
+        ${p.lt ? `<details class="it-lt"><summary>附加長文・約 ${p.lt.length} 字</summary><p class="it-text">${esc(p.lt)}</p></details>` : ''}
         ${thumbs ? `<div class="thumbs">${thumbs}</div>` : ''}${bigs}</div>`;
     }).join('');
     return `<article class="th${t.hidden ? ' hidden' : ''}" data-th="${t.id}">
@@ -365,7 +366,7 @@
         id: String(ti + 1), tag: t.tag || '',
         items: t.items.map(id => {
           const p = S.posts[id];
-          return { t: p.t, text: p.text, media: p.media.map((m, k) => { const zp = newPath[id + ':' + k]; return zp.startsWith(ROOT) ? { src: zp.slice(ROOT.length), kind: m.kind, sp: m.spoiler ? 1 : 0 } : { src: '', kind: m.kind, big: 1, link: m.link || '' }; }) };
+          return { t: p.t, text: p.text, ...(p.lt ? { lt: p.lt } : {}), media: p.media.map((m, k) => { const zp = newPath[id + ':' + k]; return zp.startsWith(ROOT) ? { src: zp.slice(ROOT.length), kind: m.kind, sp: m.spoiler ? 1 : 0 } : { src: '', kind: m.kind, big: 1, link: m.link || '' }; }) };
         }),
       }));
       const media = copies;
@@ -383,7 +384,7 @@
         lastBackup: Math.max(0, ...Object.values(S.posts).map(p => p.t)),
         profile: { username: S.profile.username, name: S.profile.name, bio: S.profile.bio, avatarPath: avatar ? ROOT + avatar : null },
         settings, bgPath: S.settings.bg ? ROOT + 'media/bg.jpg' : null,
-        posts: Object.values(S.posts).map(p => ({ id: p.id, t: p.t, text: p.text, isReply: p.isReply, replyTo: p.replyTo,
+        posts: Object.values(S.posts).map(p => ({ id: p.id, t: p.t, text: p.text, ...(p.lt ? { lt: p.lt } : {}), isReply: p.isReply, replyTo: p.replyTo,
           media: p.media.map((m, k) => ({ path: newPath[p.id + ':' + k], kind: m.kind, spoiler: !!m.spoiler, link: m.link || null, origPath: origOf[p.id + ':' + k] || m.origPath || null })) })),
         threads: S.threads.map(t => ({ id: t.id, items: t.items, tag: t.tag || '', hidden: !!t.hidden, kind: t.kind, replyTo: t.replyTo || null })),
       };
@@ -443,7 +444,7 @@
           try { src = await blobUrl(m.path); } catch (e) { /* 略過 */ }
           media.push({ src, kind: m.kind, sp: m.spoiler ? 1 : 0 });
         }
-        items.push({ t: p.t, text: p.text, media });
+        items.push({ t: p.t, text: p.text, ...(p.lt ? { lt: p.lt } : {}), media });
       }
       threads.push({ id: String(ti + 1), tag: t.tag || '', items });
     }

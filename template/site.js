@@ -30,8 +30,8 @@
 
   function card(t, q) {
     const r = t.items[0];
-    let text = r.text;
-    const cut = text.length > 240;
+    let text = r.text || (r.lt ? r.lt : '');
+    const cut = text.length > 240 || (!!r.lt && !!r.text);
     if (cut) text = text.slice(0, 240) + '…';
     let html = linkify(text);
     if (q) html = html.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), m => `<mark>${m}</mark>`);
@@ -88,7 +88,7 @@
     app.innerHTML = `<a class="back" href="#/" id="back">‹ 返回</a><section class="thread">` + t.items.map((it, i) => `
       <article class="post"><div class="rail">${av}${i < t.items.length - 1 ? '<span class="line"></span>' : ''}</div><div>
         <div class="meta"><span class="who">${esc(P.name || P.username)}</span><time>${fmt(it.t)}</time>${i === 0 && t.tag ? `<a class="chip" href="#/tag/${encodeURIComponent(t.tag)}">${esc(t.tag)}</a>` : ''}</div>
-        <p class="text">${linkify(it.text)}</p>${media(it.media)}
+        ${it.text ? `<p class="text">${linkify(it.text)}</p>` : ''}${it.lt ? `<details class="lt"${it.text ? '' : ' open'}><summary>附加長文<span>約 ${it.lt.length} 字・點開閱讀</span></summary><p class="text">${linkify(it.lt)}</p></details>` : ''}${media(it.media)}
       </div></article>`).join('') + '</section>';
     document.getElementById('back').onclick = e => { e.preventDefault(); if (navs > 0) history.back(); else location.hash = '#/'; };
     scrollTo(0, 0);
@@ -103,7 +103,7 @@
     if ((m = h.match(/^\/tag\/(.+)$/))) return list(A.threads.filter(t => t.tag === m[1]), m[1]);
     if ((m = h.match(/^\/search\/?(.*)$/))) {
       const q = m[1];
-      const hits = q ? A.threads.filter(t => t.items.some(it => it.text.toLowerCase().includes(q.toLowerCase()))) : [];
+      const hits = q ? A.threads.filter(t => t.items.some(it => (it.text + '\n' + (it.lt || '')).toLowerCase().includes(q.toLowerCase()))) : [];
       return list(hits, null, q);
     }
     list(A.threads, null);
