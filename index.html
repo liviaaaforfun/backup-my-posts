@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>貼文備份網站產生器</title>
+<meta name="description" content="把 Meta 匯出的貼文資料，在自己的電腦上整理成一個可以瀏覽、搜尋的備份網站。資料不會上傳。適用 Threads 匯出檔。">
+<link rel="stylesheet" href="app.css?v=1793769510">
+</head>
+<body>
+<header class="mast">
+  <div class="mast-in">
+    <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a1 1 0 0 1 1-1h5l2 2h7a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8 12h8M8 15.5h5"/></svg></span>
+    <p class="kick">Post Archive</p>
+    <span class="tt"><b class="serif">貼文備份網站產生器</b><small>適用 Threads 匯出檔</small></span>
+    <span class="rule" aria-hidden="true"><span></span></span>
+    <span class="grow"></span>
+    <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span class="pl-d">資料只在你的瀏覽器裡處理</span><span class="pl-m">所有資料只在你的瀏覽器裡處理，不會上傳</span></span>
+  </div>
+</header>
+
+<main id="step-import" class="page">
+  <section class="hero">
+    <p class="kick">BACKUP YOUR POSTS</p>
+    <h1 class="serif">把你的貼文，<br>變成一個<em>屬於自己的</em>備份網站</h1>
+    <p>帳號被盜、被停用或誤刪時，你的貼文、圖片和串文都還在。產生的網站可以直接在電腦上打開；想公開的話，工具也提供簡易的上線教學。</p>
+  </section>
+<div class="flow">
+  <div class="fstep"><div class="ic"><span class="no">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div><b>Meta 匯出</b><small>申請並下載<br>你的資料</small></div>
+  <div class="fstep"><div class="ic"><span class="no">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 8v7M9 12l3 3 3-3"/></svg></div><b>拖進工具</b><small>把 zip 檔<br>拖到這頁</small></div>
+  <div class="fstep"><div class="ic"><span class="no">3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg></div><b>整理</b><small>標籤・隱藏<br>防雷・外觀</small></div>
+  <div class="fstep"><div class="ic"><span class="no">4</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8"/></svg></div><b>產生網站</b><small>下載<br>post-backup.zip</small></div>
+  <div class="fstep opt"><div class="ic"><span class="no">5</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></div><b>上線（可選）</b><small>想公開再看<br>上線教學</small></div>
+</div>
+
+
+  <section class="card">
+  <h2>第 1 步：從 Meta 匯出你的資料</h2>
+  <ol class="ex-steps">
+    <li><div class="lbl">在手機或電腦上依序點：</div>
+      <div class="path"><span class="chip app">Threads 或 Instagram</span><span class="sep">›</span><span class="chip">帳號管理中心</span><span class="sep">›</span><span class="chip">你的資訊和權限</span><span class="sep">›</span><span class="chip">匯出你的資訊</span><span class="sep">›</span><span class="chip">建立匯出檔案</span></div></li>
+    <li><div class="lbl">選擇個人檔案和匯出方式：</div>
+      <div class="path"><span class="chip">你的 <b>Threads</b> 個人檔案</span><span class="sep">›</span><span class="chip">匯出到裝置</span></div></li>
+    <li><div class="lbl">照下面設定（其他維持預設）：</div>
+      <div class="setcard">
+        <div class="k">自訂資訊</div><div class="v"><span class="tick">✓</span>只勾 Threads <small>其他全部清除，檔案比較小</small></div>
+        <div class="k">日期範圍</div><div class="v"><span class="tick">✓</span>所有時間</div>
+        <div class="k">格式</div><div class="v"><span class="tick">✓</span>JSON</div>
+        <div class="k">影像畫質</div><div class="v"><span class="tick">✓</span>較高品質</div>
+      </div></li>
+    <li><div class="lbl">最後按：</div>
+      <div class="path"><span class="chip go">開始匯出</span></div>
+      <div class="deadline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>檔案準備好會收到通知，<b>4 天內</b>要下載。</span></div></li>
+  </ol>
+</section>
+
+  <section class="card">
+    <h2>第 2 步：把下載的 zip 拖進來</h2>
+    <div class="scen">
+  <div class="sh"><span class="stag">第一次備份</span>下載好的所有 zip 一次拖進來</div>
+  <div class="merge" style="grid-template-columns:auto auto 1fr">
+    <div class="zipb"><div class="multi"><div class="box"><svg class="i"><use href="#i-zip"/></svg></div><div class="box"><svg class="i"><use href="#i-zip"/></svg></div><div class="box"><svg class="i"><use href="#i-zip"/></svg></div></div>Meta 匯出的 zip<small>可能有好幾個</small></div>
+    <div class="arr"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>全部一起拖進來</div>
+    <div class="res"><svg class="i"><use href="#i-check"/></svg><span><b>自動合併成一份</b><br><span style="color:var(--muted);font-size:12.5px">同一份下載兩次也沒關係，重複的會略過</span></span></div>
+  </div>
+</div>
+<div class="scen">
+  <div class="sh"><span class="stag upd">更新備份</span>上次產生的備份檔＋新的匯出檔</div>
+  <div class="merge">
+    <div class="zipb"><div class="box"><svg class="i"><use href="#i-zip"/></svg></div>上次的<small>post-backup.zip</small></div>
+    <span class="plus">＋</span>
+    <div class="zipb"><div class="box"><svg class="i"><use href="#i-zip"/></svg></div>新的匯出檔<small>日期選上次之後</small></div>
+    <div class="arr"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>一起拖進來</div>
+    <div class="res"><svg class="i"><use href="#i-loop"/></svg><span><b>接著上次繼續</b><br><span style="color:var(--muted);font-size:12.5px">標籤、防雷、隱藏等設定都保留</span></span></div>
+  </div>
+</div>
+    <label class="drop" id="drop">
+      <input type="file" id="file" accept=".zip,application/zip" multiple hidden>
+      <span class="drop-big">把匯出的 zip 檔拖到這裡</span>
+      <span class="drop-small">或點這裡選擇檔案</span>
+    </label>
+    <p id="import-status" class="status" role="status"></p>
+  </section>
+  <section class="card">
+    <h2>第 3 步：整理好、產生網站，再放上網路</h2>
+    <p class="tip" style="margin:0">產生的網站可以直接在電腦上打開看。想讓別人也看得到，可以參考上線教學，自行放到 Cloudflare 或 GitHub 等平台。<button type="button" class="linkbtn" data-guide>看上線教學 →</button></p>
+  </section>
+</main>
+
+<main id="step-edit" class="page" hidden>
+<div class="flow mini">
+  <div class="fstep done"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div><b>Meta 匯出</b></div>
+  <div class="fstep done"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div><b>拖進工具</b></div>
+  <div class="fstep cur"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></div><b>整理 <span class="here">← 現在</span></b></div>
+  <div class="fstep"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/></svg></div><b>產生網站</b></div>
+  <div class="fstep opt"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/></svg></div><b>上線</b></div>
+</div>
+  <div class="toolbar">
+    <div id="summary" class="summary"></div>
+    <span class="tb-r"><button type="button" class="btn" data-guide>上線教學</button><button type="button" id="generate" class="primary">產生網站</button></span>
+  </div>
+  <div class="layout">
+    <aside class="side">
+      <section class="card">
+        <h2>個人檔案</h2>
+        <div class="avatar-row">
+          <img id="avatar-preview" class="avatar-lg" alt="">
+          <label class="btn">換大頭貼<input type="file" id="avatar-file" accept="image/*" hidden></label>
+        </div>
+        <label class="field">顯示名稱<input id="f-name" type="text"></label>
+        <label class="field">帳號<input id="f-user" type="text"></label>
+        <label class="field">簡介<textarea id="f-bio" rows="4"></textarea></label>
+      </section>
+      <section class="card">
+        <h2>外觀</h2>
+        <label class="field">主色
+          <span class="color-row"><input id="f-accent" type="color" value="#000000"><span id="presets" class="presets"></span></span>
+        </label>
+        <div class="field">背景圖
+          <div class="bg-row"><label class="btn">選擇圖片<input type="file" id="bg-file" accept="image/*" hidden></label><button type="button" class="btn" id="bg-clear">移除</button></div>
+          <img id="bg-preview" class="bg-preview" alt="" hidden>
+          <div id="bg-opts" class="bg-opts" hidden>
+            <label>顯示方式
+              <select id="bg-fit">
+                <option value="cover">填滿畫面（可能裁切）</option>
+                <option value="contain">完整顯示整張圖</option>
+                <option value="width">對齊寬度，上下捲動</option>
+                <option value="repeat">重複拼貼</option>
+              </select></label>
+            <label>對齊位置
+              <select id="bg-pos">
+                <option value="top">靠上</option>
+                <option value="center">置中</option>
+                <option value="bottom">靠下</option>
+              </select></label>
+            <label>濃淡 <input id="bg-op" type="range" min="5" max="70" step="1"></label>
+          </div>
+        </div>
+      </section>
+      <section class="card">
+        <h2>公開設定</h2>
+        <label class="check"><input type="checkbox" id="f-noindex" checked> 不讓搜尋引擎收錄（建議）</label>
+        <p class="tip">勾選時，網站放上網路後，Google 等搜尋引擎不會把它列進搜尋結果，只有拿到網址的人看得到。想被搜尋到再取消勾選。</p>
+      </section>
+      <section class="card">
+        <h2>收錄範圍</h2>
+        <label class="check"><input type="checkbox" id="f-others"> 也收錄「回覆別人」的留言</label>
+        <p class="tip">預設只收錄你自己的貼文，以及你在自己貼文下的追加回覆。</p>
+      </section>
+    </aside>
+
+    <section class="main-col">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="tab-edit" aria-selected="true">整理貼文</button>
+        <button type="button" role="tab" id="tab-preview" aria-selected="false">預覽網站</button>
+      </div>
+      <div id="preview-pane" hidden>
+        <div class="pv-bar">
+          <span class="tip">即時預覽前 40 串貼文。左邊的顏色、背景、大頭貼一改就會更新。</span>
+          <span class="seg"><button type="button" data-w="100%" aria-pressed="true">電腦</button><button type="button" data-w="390px" aria-pressed="false">手機</button></span>
+        </div>
+        <div class="pv-stage"><iframe id="preview" title="網站預覽"></iframe></div>
+      </div>
+      <div id="edit-pane">
+      <div class="filters">
+        <input type="search" id="q" placeholder="搜尋貼文">
+        <select id="show">
+          <option value="all">全部貼文</option>
+          <option value="visible">只看要收錄的</option>
+          <option value="hidden">只看已隱藏的</option>
+          <option value="reply">回覆別人的留言</option>
+          <option value="new">只看這次新增的</option>
+          <option value="big">超過 25 MB 的影片</option>
+        </select>
+        <button type="button" class="helpbtn" id="help-thread" aria-expanded="false" aria-controls="help-pop"><span class="q">?</span>串文怎麼分的？</button>
+      </div>
+      <div class="pop" id="help-pop" hidden>
+  <h4>串文是怎麼分的？</h4>
+  <p class="sub">匯出檔沒有記錄哪些貼文是同一串，工具用時間來推測：</p>
+  <div class="grp"><span class="tag">自動歸成同一串</span>
+    <div class="post"><span class="dot"></span>5/24 21:20 主貼文</div>
+    <div class="post"><span class="dot"></span>21:58 自己回覆自己 <small style="color:var(--muted)">（38 分鐘後）</small></div>
+    <div class="post"><span class="dot"></span>隔天 10:05 自己回覆自己 <small style="color:var(--muted)">（距離上一則 48 小時內）</small></div>
+  </div>
+  <div class="gaprow">超過 48 小時</div>
+  <div class="grp b"><span class="tag">變成新的一串</span>
+    <div class="post"><span class="dot"></span>5/28 自己回覆自己</div>
+  </div>
+  <div class="fix">
+    <div><span class="btn small">拆成獨立一串</span><br>不該在同一串的追加回覆，拆出來</div>
+    <div><span class="btn small">併入上一串</span><br>被分開但其實是同一串的，接回去</div>
+  </div>
+</div>
+
+      <p class="tip">點縮圖可以切換「防雷」。</p>
+      <div id="list"></div>
+      <input type="file" id="rep-file" accept="video/*,.mp4,.mov,.m4v" hidden>
+      <div class="pager"><button type="button" id="more" class="btn">顯示更多</button></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="sig"><img src="logo.png" alt="Crafted by YuanLiv" width="860" height="130"><small>資料只在你的瀏覽器裡處理</small>
+  <nav><button type="button" class="sig-intro">使用說明</button><button type="button" data-guide>上線教學</button></nav></footer>
+
+<div id="gen-dialog" class="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="gen-title">
+    <div class="gen-head">
+      <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <h2 id="gen-title">正在產生網站…</h2>
+    </div>
+    <div class="bar-track"><div class="bar-fill" id="gen-fill"></div></div>
+    <progress id="gen-progress" max="100" value="0" hidden></progress>
+    <p id="gen-status" class="status"></p>
+    <div id="gen-done" hidden>
+      <div class="zipline">
+        <div class="zipicon"><svg viewBox="0 0 48 56" aria-hidden="true"><path d="M8 2h22l12 12v38a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="var(--soft)" stroke="var(--ink)" stroke-width="2"/><path d="M30 2v12h12" fill="none" stroke="var(--ink)" stroke-width="2"/><path d="M20 6h4v4h-4zM24 10h4v4h-4zM20 14h4v4h-4zM24 18h4v4h-4zM20 22h4v4h-4z" fill="var(--ink)"/><rect x="19" y="27" width="10" height="9" rx="2" fill="none" stroke="var(--ink)" stroke-width="2"/></svg></div>
+        <div class="zipinfo"><b>post-backup.zip</b><span>已下載完成。解壓縮後會得到兩個資料夾：</span></div>
+      </div>
+      <div class="folders">
+        <div class="folder pub">
+          <div class="ftop"><span class="ficon"><svg viewBox="0 0 56 44" aria-hidden="true"><path d="M2 6a3 3 0 0 1 3-3h15l5 5h26a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3z" fill="currentColor"/></svg></span><div class="fname">① 網站<small>（可以用於上傳公開）</small></div></div>
+          <span class="dash"></span>
+          <p>你的備份網站。打開裡面的<br><b>index.html</b> 就能瀏覽；<br>想放上網路時，上傳這個資料夾。</p>
+          <button type="button" class="fstate ok" data-guide><span>可以上傳・看上線教學</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <div class="folder priv">
+          <div class="ftop"><span class="ficon"><svg viewBox="0 0 56 44" aria-hidden="true"><path d="M2 6a3 3 0 0 1 3-3h15l5 5h26a3 3 0 0 1 3 3v28a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3z" fill="currentColor"/></svg></span><div class="fname">② 存檔<small>（自己留著，下次備份用）</small></div></div>
+          <span class="dash"></span>
+          <p>給工具用的存檔，裡面有你隱藏的<br>貼文和所有整理設定。</p>
+          <div class="fstate no"><span>不要上傳</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 6l12 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        </div>
+      </div>
+      <p class="keep"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span><b>整個 zip 請留著別刪。</b>下次備份時，把它和新的 Meta 匯出檔一起拖進工具，就會接著上次繼續。</span></p>
+      <div class="close-row"><button type="button" class="btn wide" id="gen-close">關閉</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="guide" class="modal" hidden>
+  <div class="modal-box guide" role="dialog" aria-modal="true" aria-labelledby="guide-title">
+    <div class="g-head">
+      <h2 id="guide-title">把網站放上網路</h2>
+      <button type="button" class="g-x" id="guide-close" aria-label="關閉">✕</button>
+    </div>
+    <p class="g-lead">網站就是「① 網站（可以用於上傳公開）」這個資料夾，不需要伺服器，也不用寫程式。下面提供兩種常見的做法，選一種就好；方案與費用以各平台的規定為準。</p>
+
+    <div class="unzip">
+      <div class="zipb"><div class="box"><svg class="i"><use href="#i-zip"/></svg></div>post-backup.zip<small class="zipnote">請勿上傳整個 zip 檔</small></div>
+      <div class="arr"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>解壓縮</div>
+      <div class="outs">
+        <div class="out pub"><svg class="fd" viewBox="0 0 24 24"><use href="#i-dir"/></svg><span class="lab"><b>① 網站</b><small>（可以用於上傳公開）</small></span><span class="st"><svg class="i"><use href="#i-check"/></svg>只上傳這個</span></div>
+        <div class="out priv"><svg class="fd" viewBox="0 0 24 24"><use href="#i-dir"/></svg><span class="lab"><b>② 存檔</b><small>（裡面有隱藏的貼文）</small></span><span class="st"><svg class="i"><use href="#i-ban"/></svg>不要上傳</span></div>
+      </div>
+    </div>
+
+    <div id="g-stats" class="g-stats usage" hidden></div>
+
+    <div class="cmp g-tabs" role="tablist">
+      <button type="button" role="tab" aria-selected="true" data-gt="cf" class="pcard"><span class="hd"><b>Cloudflare</b></span>
+        <dl><dt>上傳方式</dt><dd>選擇或拖曳資料夾</dd><dt>每次上傳</dt><dd>整個資料夾一次傳完</dd><dt>網站上限</dt><dd>最多 20,000 個檔案（免費方案）</dd><dt>單一檔案</dt><dd>25 MB 以內</dd><dt>網址樣式</dt><dd>名稱.帳號.workers.dev</dd><dt>介面語言</dt><dd>有繁體中文</dd></dl></button>
+      <button type="button" role="tab" aria-selected="false" data-gt="gh" class="pcard"><span class="hd"><b>GitHub</b></span>
+        <dl><dt>上傳方式</dt><dd>拖曳檔案和資料夾</dd><dt>每次上傳</dt><dd>最多 100 個檔案，超過要分批</dd><dt>網站上限</dt><dd>沒有檔案數限制，總大小 1 GB 以內</dd><dt>單一檔案</dt><dd>25 MB 以內</dd><dt>網址樣式</dt><dd>帳號.github.io/名稱</dd><dt>介面語言</dt><dd>只有英文</dd></dl></button>
+    </div>
+    <p class="cmp-note">兩者都是第三方服務，方案、限制與費用以各平台公告為準；這裡只整理寫教學當下的規格，順序依字母排列。點選卡片會切換到該平台的步驟。</p>
+
+    <section class="g-pane" data-gp="cf">
+      <ol class="g-steps">
+        <li><b>註冊並登入 Cloudflare</b><span>到 <a href="https://dash.cloudflare.com/sign-up" target="_blank" rel="noopener">dash.cloudflare.com</a> 註冊帳號，可以直接用 Google 帳號登入。</span></li>
+        <li><b>打開 Workers &amp; Pages</b><span>左邊選單「組建」（Build）底下，點「運算」（Compute）展開，再點「Workers &amp; Pages」。</span></li>
+        <li><b>建立應用程式</b><span>按右上角的 <span class="ui cf-blue">建立應用程式</span> <span class="en">Create application</span>。在「建立新項目」（Make something new）清單中，選最下面的「Upload your static files」。</span></li>
+        <li><b>選擇資料夾</b><span>出現「上傳和部署」（Upload and deploy）頁面。點虛線框裡的 <span class="ui link">資料夾</span> <span class="en">folder</span>，選擇解壓縮後的「<b>① 網站（可以用於上傳公開）</b>」後上傳。也可以直接把資料夾拖進虛線框。</span></li>
+        <li><b>取名稱</b><span>檔案清單下方的「Worker 名稱」（Worker name）會先填好一個隨機名稱，可以改成好記的英文小寫，例如 <code>my-backup</code>。右邊顯示「可用」（Available）就代表名稱沒被用過，網址會是 <code>my-backup.你的帳號名.workers.dev</code>。</span></li>
+        <li><b>部署</b><span>按右下角的 <span class="ui cf-blue">部署</span> <span class="en">Deploy</span>。這時每個檔案旁會開始轉圈圈（正在上傳），檔案大約 150 MB 時要等 1 分鐘左右，請不要關掉頁面。</span></li>
+        <li><b>完成</b><span>上傳完會自動跳到這個網站的頁面。上方的 <code>….workers.dev</code> 連結就是網址，也可以按右上角的 <span class="ui cf-blue">造訪</span> <span class="en">Visit</span> 打開。</span></li>
+      </ol>
+      <div class="g-box">
+        <b>限制</b>：免費方案一個網站最多 <b>20,000 個檔案</b>，每個檔案最大 <b>25 MB</b>。超過 25 MB 的影片，工具會先留在「② 存檔」、不放進網站，所以不會卡住；還是想放的話，看下方「想放超過 25 MB 的影片？」。
+        <span id="g-cf-note"></span>
+      </div>
+      <details class="g-more g-fold">
+        <summary>之後要更新網站？</summary>
+        <ol>
+          <li>用工具產生新的 zip 並解壓縮。</li>
+          <li>到「運算」（Compute）→「Workers &amp; Pages」，在清單點你的網站名稱。</li>
+          <li>按右上角的 <span class="ui cf-plain">新部署</span> <span class="en">New deployment</span>，進到「上傳靜態檔案以更新 Worker」（Upload static files to update your Worker）。</li>
+          <li>點 <span class="ui link">資料夾</span> <span class="en">folder</span> 選擇新的「①」資料夾，再按右下角的 <span class="ui cf-blue">部署</span> <span class="en">Deploy</span>。網址不會變。</li>
+        </ol>
+      </details>
+      <details class="g-more g-fold">
+        <summary>想用自己買的網址？</summary>
+        <p class="g-p">在網站頁面上方切到「網域」（Domains）分頁，按 <span class="ui cf-blue">＋ 新增網域</span> <span class="en">Add Domain</span>。網址需要先加入同一個 Cloudflare 帳號。</p>
+      </details>
+      <details class="g-more g-fold g-del">
+        <summary>想刪除網頁？</summary>
+        <p class="g-p">刪除只會讓網站從網路上消失。你電腦裡的 post-backup.zip 和資料夾都不受影響，之後想重新上線，再上傳一次就好。</p>
+        <ol>
+          <li>到「運算」（Compute）→「Workers &amp; Pages」，在清單點你的網站名稱。</li>
+          <li>上方切到「設定」（Settings）分頁，捲到最下面的「危險區域」（Danger zone）。</li>
+          <li>在「刪除 Worker」（Delete Worker）那一列，按 <span class="ui cf-red">🗑 刪除</span> <span class="en">Delete</span>。</li>
+          <li>跳出的視窗會請你輸入網站名稱確認，輸入後再按 <span class="ui cf-red">刪除</span> <span class="en">Delete</span>，網址就會立刻失效。</li>
+        </ol>
+        <p class="g-p g-small">搜尋引擎可能還會暫時留著舊的搜尋結果，通常幾天到幾週內會自己消失。</p>
+      </details>
+    </section>
+
+    <section class="g-pane" data-gp="gh" hidden>
+      <ol class="g-steps">
+        <li><b>建立儲存庫</b><span>登入 <a href="https://github.com/" target="_blank" rel="noopener">github.com</a>，按右上角的 <span class="ui gh-gray">＋ ▾</span> → 選「New repository」。「Repository name」填英文名稱，例如 <code>my-backup</code>；「Choose visibility」維持「Public」（免費方案的網站需要公開）。其他不用改，按右下角的 <span class="ui gh-green">Create repository</span>。</span></li>
+        <li><b>上傳第一批檔案</b><span>建好後的頁面上，點「Quick setup」那一區的 <span class="ui link">uploading an existing file</span>。打開「①」資料夾，把 <b>index.html、data.js 和 assets 資料夾</b>一起拖進「Drag files here to add them to your repository」框，等檔案清單出現，按下方的 <span class="ui gh-green">Commit changes</span>。</span></li>
+        <li><b>上傳 media 資料夾</b><span>回到儲存庫首頁，按 <span class="ui gh-gray">Add file ▾</span> → 選「Upload files」，把 <b>media 資料夾</b>整個拖進去，再按 <span class="ui gh-green">Commit changes</span>。（一次最多只能上傳 100 個檔案，所以要分兩批。）</span></li>
+        <li><b>開啟網站</b><span>上方切到「Settings」分頁，左邊選單點「Pages」。在「Build and deployment」：「Source」維持「Deploy from a branch」；「Branch」把 <span class="ui gh-gray">None ▾</span> 改選「main」，旁邊維持「/ (root)」，按 <span class="ui gh-gray">Save</span>。</span></li>
+        <li><b>完成</b><span>等一分鐘左右重新整理同一頁，上方會出現「Your site is live at <code>https://你的帳號.github.io/my-backup/</code>」，按 <span class="ui gh-gray">Visit site</span> 就能打開。</span></li>
+      </ol>
+      <div class="batches">
+  <div class="batch"><div class="hd"><span class="bn">1</span><b>第一批</b><span class="w">在「uploading an existing file」頁面</span></div>
+    <div class="files">
+      <div class="f"><svg class="i ico"><use href="#i-file"/></svg>index.html</div>
+      <div class="f"><svg class="i ico"><use href="#i-file"/></svg>data.js</div>
+      <div class="f dir"><svg class="ico"><use href="#i-dir"/></svg>assets<small>2 個檔案</small></div>
+    </div>
+    <p class="how">一起拖進去 → 按 <span class="ui gh-green">Commit changes</span></p></div>
+  <div class="arrow"><svg class="i" width="22" height="22" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+  <div class="batch"><div class="hd"><span class="bn">2</span><b>第二批</b><span class="w"><span class="ui gh-gray">Add file ▾</span> → <span class="ui gh-gray">Upload files</span></span></div>
+    <div class="files">
+      <div class="f dir"><svg class="ico"><use href="#i-dir"/></svg>media<small>所有圖片和影片</small></div>
+    </div>
+    <p class="how">整個資料夾拖進去 → 按 <span class="ui gh-green">Commit changes</span><br>一次最多 100 個檔案，所以要和第一批分開。</p></div>
+</div>
+
+      <div class="g-box">
+        <b>要用拖的，不要用選的</b>：「choose your files」只能選檔案、不能選資料夾，assets 和 media 裡的檔案會全部跑到最外層，網站會壞掉。<br>
+        <b>限制</b>：一次最多上傳 <b>100 個檔案</b>，每個檔案最大 <b>25 MB</b>，整個網站不能超過 <b>1 GB</b>（超過 25 MB 的影片工具會先排除，見下方「想放超過 25 MB 的影片？」）。
+        <span id="g-gh-note"></span>
+      </div>
+      <details class="g-more g-fold">
+        <summary>之後要更新網站？</summary>
+        <h3 class="g-h3">只有新增貼文，沒有隱藏任何東西</h3>
+        <p class="g-p">一樣用 <span class="ui gh-gray">Add file ▾</span> →「Upload files」，照上面的兩批方式把新的「①」資料夾內容拖進去，按 <span class="ui gh-green">Commit changes</span>。同名檔案會直接覆蓋，網址不會變。</p>
+        <h3 class="g-h3">有隱藏貼文，或拿掉了圖片</h3>
+        <p class="g-p">GitHub 上傳只會新增或覆蓋檔案，<b>不會刪掉舊檔案</b>，隱藏貼文的圖片會繼續留在網路上；就算刪掉資料夾，GitHub 的歷史紀錄裡還是看得到。建議這樣做：</p>
+        <ol>
+          <li>照下方「想刪除網頁？」的「整個刪掉」，把儲存庫刪除。</li>
+          <li>用<b>同一個名字</b>重新建立儲存庫，照上面的步驟重新上傳並開啟網站。網址不會變。</li>
+        </ol>
+      </details>
+      <details class="g-more g-fold">
+        <summary>想用自己買的網址？</summary>
+        <p class="g-p">在「Settings」→「Pages」的「Custom domain」欄位填入網址，按旁邊的 <span class="ui gh-gray">Save</span>。</p>
+      </details>
+      <details class="g-more g-fold g-del">
+        <summary>想刪除網頁？</summary>
+        <p class="g-p">刪除只會讓網站從網路上消失。你電腦裡的 post-backup.zip 和資料夾都不受影響，之後想重新上線，再上傳一次就好。</p>
+        <ul>
+          <li><b>只想先下線、保留檔案</b>：「Settings」→「Pages」，把「Branch」從「main」改成「None」，按 <span class="ui gh-gray">Save</span>。（同一頁的「Unpublish site」在你下次上傳檔案後會自動重新上線，所以建議用改成 None 的方式。）</li>
+          <li><b>整個刪掉</b>：「Settings」頁捲到最下面的「Danger Zone」，按 <span class="ui gh-red">Delete this repository</span>。跳出的視窗依序按 <span class="ui gh-gray">I want to delete this repository</span> → <span class="ui gh-gray">I have read and understand these effects</span>，輸入畫面上提示的「帳號/儲存庫名稱」，再按 <span class="ui gh-red">Delete this repository</span>。如果跳出「Confirm access」，照畫面驗證身分（例如收驗證信）後就會完成刪除。</li>
+        </ul>
+        <p class="g-p g-small">搜尋引擎可能還會暫時留著舊的搜尋結果，通常幾天到幾週內會自己消失。</p>
+      </details>
+    </section>
+
+    <details class="g-more g-bigv" id="g-bigv">
+      <summary>想放超過 25 MB 的影片？</summary>
+      <p class="g-p">Cloudflare 和 GitHub 都不收超過 25 MB 的單一檔案，所以工具預設不放進網站。想放的話有兩種做法，都在工具的「整理貼文」裡操作（上方篩選選「超過 25 MB 的影片」就能一次找出來）：</p>
+      <h3 class="g-h3">做法一：換成壓縮後的影片</h3>
+      <ol>
+        <li>先把影片壓縮到 25 MB 以下。Mac 可以用內建的 QuickTime Player：打開影片 → 上方選單「<b>檔案</b>」→「<b>輸出為</b>」→「<b>720p⋯</b>」，存成新檔案。還是太大的話改選「<b>480p⋯</b>」。</li>
+        <li>回到工具，在那支影片下方按「<b>換成壓縮後的影片</b>」，選剛剛存好的檔案。</li>
+        <li>重新按「產生網站」。原本的大檔案仍會留在「② 存檔」，不會遺失。</li>
+      </ol>
+      <h3 class="g-h3">做法二：自己上傳到影音平台，再放連結</h3>
+      <ol>
+        <li><b>工具不會幫你上傳影片</b>，這一步要自己做：先把影片上傳到你自己的 YouTube 等影音平台帳號（可以設成只有拿到連結的人才看得到），再複製那支影片的網址。</li>
+        <li>回到工具，在那支影片下方按「<b>改放影片連結</b>」，貼上剛剛複製的網址。</li>
+        <li>重新按「產生網站」。網站上那支影片的位置會變成「▶ 觀看影片」的連結。</li>
+      </ol>
+    </details>
+    <div class="g-note">
+      <b>公開之前想一下</b>
+      <ul>
+        <li>網站上線後，<b>知道網址的人都看得到</b>，也可能被搜尋引擎找到。</li>
+        <li>不想公開的貼文，回工具按「隱藏」再重新產生；隱藏的貼文和它的圖片都不會出現在「①」裡。</li>
+        <li>只想自己留存的話，不用上傳也可以：直接打開「①」裡的 <b>index.html</b> 就能瀏覽。</li>
+      </ul>
+    </div>
+    <div class="close-row"><button type="button" class="btn wide" id="guide-done">我知道了</button></div>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute">
+ <symbol id="i-text" viewBox="0 0 24 24"><path d="M5 6h14M5 11h14M5 16h9"/></symbol>
+ <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+ <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></symbol>
+ <symbol id="i-thread" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M6 8.5v7M11 6h9M11 18h9"/></symbol>
+ <symbol id="i-reply" viewBox="0 0 24 24"><path d="M9 10L4 15l5 5"/><path d="M4 15h11a5 5 0 0 0 5-5V4"/></symbol>
+ <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+ <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+ <symbol id="i-quote" viewBox="0 0 24 24"><path d="M7 7h4v4c0 3-1.5 5-4 6M14 7h4v4c0 3-1.5 5-4 6"/></symbol>
+ <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+ <symbol id="i-hash" viewBox="0 0 24 24"><path d="M9 3L7 21M17 3l-2 18M4 9h17M3 15h17"/></symbol>
+ <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+ <symbol id="i-site" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></symbol>
+ <symbol id="i-brush" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></symbol>
+ <symbol id="i-loop" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></symbol>
+ <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></symbol>
+ <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+ <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+ <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></symbol>
+ <symbol id="i-dir" viewBox="0 0 24 24"><path d="M3 6a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" fill="currentColor" stroke="none"/></symbol>
+ <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-zip" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M11 5h2M11 8h2M11 11h2"/><rect x="10" y="13" width="4" height="4" rx="1"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+ <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></symbol>
+</svg>
+<div id="intro-modal" class="modal" hidden>
+<div class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+  <h2 id="intro-title">開始之前，先看看這個工具能做什麼</h2>
+  <p class="lead">用 Meta 官方匯出的檔案，在你自己的電腦上整理出一個備份網站。</p>
+
+  <h3><span class="badge-ok">✓</span>這個工具可以做到的事</h3>
+  <div class="cando">
+    <div><svg class="i ico"><use href="#i-site"/></svg><p style="margin:0"><b>整理成備份網站</b><span>時間軸、搜尋、標籤分類，電腦上直接打開就能看</span></p></div>
+    <div><svg class="i ico"><use href="#i-brush"/></svg><p style="margin:0"><b>自己整理、自己設計</b><span>標籤、隱藏、拆合串文、防雷、主色、背景、大頭貼</span></p></div>
+    <div><svg class="i ico"><use href="#i-loop"/></svg><p style="margin:0"><b>定期接續備份</b><span>上次的備份檔＋新的匯出檔一起拖進來，設定都保留</span></p></div>
+    <div><svg class="i ico"><use href="#i-globe"/></svg><p style="margin:0"><b>公開網頁的簡易教學（可選）</b><span>要不要公開、使用哪個平台以及相關費用，由使用者自主決定</span></p></div>
+  </div>
+
+  <h3>能備份到的內容</h3>
+  <div class="twocol">
+    <div class="col ok"><h4><span class="badge-ok">✓</span>匯出檔裡有，可以備份</h4>
+      <ul>
+        <li><svg class="i ico"><use href="#i-text"/></svg>貼文文字</li>
+        <li><svg class="i ico"><use href="#i-clock"/></svg>發文時間</li>
+        <li><svg class="i ico"><use href="#i-img"/></svg>圖片和影片</li>
+        <li><svg class="i ico"><use href="#i-thread"/></svg>自己的追加回覆 <small>自動歸成同一串</small></li>
+        <li><svg class="i ico"><use href="#i-reply"/></svg>回覆別人的留言 <small>預設不收錄</small></li>
+        <li><svg class="i ico"><use href="#i-user"/></svg>名稱、簡介、大頭貼</li>
+      </ul></div>
+    <div class="col no"><h4><span class="badge-no">✕</span>匯出檔裡沒有，無法備份</h4>
+      <ul>
+        <li><svg class="i ico"><use href="#i-chat"/></svg>別人的留言和回覆</li>
+        <li><svg class="i ico"><use href="#i-heart"/></svg>按讚、回覆、轉發數</li>
+        <li><svg class="i ico"><use href="#i-quote"/></svg>引用的別人貼文內容</li>
+        <li><svg class="i ico"><use href="#i-link"/></svg>原本的貼文網址</li>
+        <li><svg class="i ico"><use href="#i-hash"/></svg>平台上設定的標籤 <small>可在工具裡重加</small></li>
+        <li><svg class="i ico"><use href="#i-trash"/></svg>已經刪掉的貼文</li>
+      </ul></div>
+  </div>
+
+  <h3><span class="badge-no">✕</span>這個工具做不到的事</h3>
+  <ul class="cant">
+    <li><svg class="i ico"><use href="#i-x"/></svg><span><b>沒辦法找回帳號，也沒辦法替你匯出資料。</b>匯出要登入才申請得到，帳號被盜或停用後可能就無法匯出，請趁還能登入時定期備份。</span></li>
+    <li><svg class="i ico"><use href="#i-x"/></svg><span><b>串文是推測出來的。</b>匯出檔沒有串文關係，工具用「48 小時內回覆自己」推測，歸錯可以手動調整。</span></li>
+    <li><svg class="i ico"><use href="#i-x"/></svg><span><b>不會同步回平台、不會自動更新。</b>想更新備份，要自己重新申請一次匯出。</span></li>
+    <li><svg class="i ico"><use href="#i-x"/></svg><span><b>超過 25 MB 的影片不會直接放上網站。</b>可以換成壓縮版，或自己上傳到影音平台後放連結。</span></li>
+  </ul>
+
+  <div class="lock"><svg class="i ico"><use href="#i-lock"/></svg><span><b>你的資料在哪裡：</b>所有處理都在你的瀏覽器裡完成，不會上傳到任何伺服器，作者也看不到你的內容。工具不需要登入你的任何帳號。</span></div>
+
+  <div class="terms">
+    <p><b>作者不負保管責任</b>　這個工具照現況提供，不保證能完整備份所有內容。因裝置、瀏覽器、操作或匯出格式改變造成的資料遺失或錯誤，作者無法負責，也沒有辦法幫你找回。</p>
+    <p><b>內容與公開由你負責</b>　請確認你有權使用網站裡的文字、圖片和影片；公開前也請想一下貼文中出現的其他人是否同意。平台規範與費用以各平台規定為準。</p>
+    <p><b>與 Meta 無關</b>　這是基於 Meta 服務提供的匯出功能而製作的工具，與 Meta、Threads、Instagram 沒有任何關聯，也不代表平台立場。如果 Meta 的匯出格式或相關政策改變，這個工具可能會調整功能、暫停或停止提供，恕不另行通知。</p>
+  </div>
+  <div class="close-row"><button type="button" class="primary" id="intro-ok">我知道了，開始備份</button></div>
+</div>
+</div>
+
+<script src="lib/zip.js?v=1793769510"></script>
+<script src="lib/importer.js?v=1793769510"></script>
+<script src="lib/templates.js?v=1793769510"></script>
+<script src="app.js?v=1793769510"></script>
+</body>
+</html>
