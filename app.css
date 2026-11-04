@@ -495,3 +495,7 @@ svg.i{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke
 .it-lt{margin:6px 0 2px;border:1px solid var(--line);border-radius:10px;padding:0 12px}
 .it-lt summary{cursor:pointer;padding:8px 0;font-size:13px;color:var(--muted)}
 .it-lt .it-text{margin:0 0 10px}
+
+.archived-note{display:flex;gap:10px;align-items:flex-start;margin:0 0 16px;padding:12px 14px;border-radius:12px;background:var(--priv-bg);border:1px solid var(--priv-line);font-size:13.5px;line-height:1.6}
+.archived-note svg{flex:none;margin-top:2px;color:var(--priv)}
+.archived-note p{margin:2px 0 0;color:var(--muted)}

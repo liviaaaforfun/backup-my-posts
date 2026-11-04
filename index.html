@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>貼文備份網站產生器</title>
 <meta name="description" content="把 Meta 匯出的貼文資料，在自己的電腦上整理成一個可以瀏覽、搜尋的備份網站。資料不會上傳。適用 Threads 匯出檔。">
-<link rel="stylesheet" href="app.css?v=1793802155">
+<link rel="stylesheet" href="app.css?v=1793815867">
 </head>
 <body>
 <header class="mast">
@@ -99,6 +99,7 @@
     <div id="summary" class="summary"></div>
     <span class="tb-r"><button type="button" class="btn" data-guide>上線教學</button><button type="button" id="generate" class="primary">產生網站</button></span>
   </div>
+  <div id="archived-note" class="archived-note" hidden></div>
   <div class="layout">
     <aside class="side">
       <section class="card">
@@ -400,6 +401,7 @@
  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M7 7h4v4c0 3-1.5 5-4 6M14 7h4v4c0 3-1.5 5-4 6"/></symbol>
  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
  <symbol id="i-hash" viewBox="0 0 24 24"><path d="M9 3L7 21M17 3l-2 18M4 9h17M3 15h17"/></symbol>
+ <symbol id="i-archive" viewBox="0 0 24 24"><path d="M3 5h18v4H3zM5 9v10h14V9M10 13h4"/></symbol>
  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
  <symbol id="i-site" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></symbol>
  <symbol id="i-brush" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></symbol>
@@ -446,6 +448,7 @@
         <li><svg class="i ico"><use href="#i-quote"/></svg>引用的別人貼文內容</li>
         <li><svg class="i ico"><use href="#i-link"/></svg>原本的貼文網址</li>
         <li><svg class="i ico"><use href="#i-hash"/></svg>平台上設定的標籤 <small>可在工具裡重加</small></li>
+        <li><svg class="i ico"><use href="#i-archive"/></svg>封存的貼文<small>取消封存後再匯出就能備份</small></li>
         <li><svg class="i ico"><use href="#i-trash"/></svg>已經刪掉的貼文</li>
       </ul></div>
   </div>
@@ -469,9 +472,9 @@
 </div>
 </div>
 
-<script src="lib/zip.js?v=1793802155"></script>
-<script src="lib/importer.js?v=1793802155"></script>
-<script src="lib/templates.js?v=1793802155"></script>
-<script src="app.js?v=1793802155"></script>
+<script src="lib/zip.js?v=1793815867"></script>
+<script src="lib/importer.js?v=1793815867"></script>
+<script src="lib/templates.js?v=1793815867"></script>
+<script src="app.js?v=1793815867"></script>
 </body>
 </html>

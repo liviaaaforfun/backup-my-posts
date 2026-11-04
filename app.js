@@ -133,6 +133,13 @@
     $('#summary').innerHTML = `<div class="stat"><b>${inc.length}</b><span>串貼文</span></div><div class="stat"><b>${nImg}</b><span>個圖片／影片</span></div>` +
       (S.resumed ? `<div class="stat new"><b>+${S.newCount}</b><span>本次新增</span></div>` : '') +
       `<div class="datetag"><span class="d"><svg class="i" width="15" height="15"><use href="#i-cal"/></svg>資料到 ${ds}</span>下次匯出選這天之後即可</div>`;
+    const ar = S.archived || [];
+    $('#archived-note').hidden = !ar.length;
+    if (ar.length) {
+      const f = ts => { const d = new Date(ts * 1000), z = n => String(n).padStart(2, '0'); return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} ${z(d.getHours())}:${z(d.getMinutes())}`; };
+      $('#archived-note').innerHTML = `<svg class="i" width="18" height="18"><use href="#i-archive"/></svg><div><b>有 ${ar.length} 篇封存的貼文沒有被 Meta 匯出</b>` +
+        `<p>匯出檔只記錄了發文時間：${ar.map(f).join('、')}。想備份的話，請先到 Threads 取消封存，再重新申請匯出。</p></div>`;
+    }
     const tags = [...new Set(S.threads.map(t => t.tag).filter(Boolean))];
     $('#list').innerHTML = `<datalist id="tag-list">${tags.map(t => `<option value="${esc(t)}">`).join('')}</datalist>` +
       list.slice(0, shown).map(card).join('') + (list.length ? '' : '<p class="tip">沒有符合的貼文。</p>');
